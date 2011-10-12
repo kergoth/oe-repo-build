@@ -1,4 +1,4 @@
-all:
+default:
 
 %:
 	make -C build/ $@
