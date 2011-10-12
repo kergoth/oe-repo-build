@@ -51,8 +51,7 @@ cleansstate-%:
 
 update:
 	@echo Updating repositories...
-	@git submodule foreach git fetch origin master
-	@git submodule foreach git checkout FETCH_HEAD
+	@repo sync
 
 env:
 	@echo Showing environment
