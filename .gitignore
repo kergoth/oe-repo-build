@@ -1,0 +1,7 @@
+/conf/auto.conf
+/conf/sanity_info
+/pseudodone
+
+/build
+/sstate-cache/
+/*.dot
