@@ -1,9 +1,9 @@
 # Makefile provided as a convenience wrapper around setup.sh and bitbake
 
-defaulttarget = core-image-minimal
 UI ?= knotty
 
-$(defaulttarget):
+default:
+	@$(call bitbake)
 
 help:
 	@echo >&2 "Note: Default target is $(defaulttarget)"
@@ -25,11 +25,11 @@ parse:
 
 clean:
 	@echo Cleaning build directory...
-	@-rm -rf build*/* pseudodone
+	@-rm -rf build/tmp* pseudodone
 
 clean-sstate:
 	@echo Cleaning sstate files...
-	@-rm -rf sstate-cache
+	@-rm -rf build/shared-state-cache
 
 graph-%:
 	@echo Graphing $*...
