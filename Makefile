@@ -1,9 +1,9 @@
 # Makefile provided as a convenience wrapper around setup.sh and bitbake
 
-defaulttarget = micro-base-image
 UI ?= knotty
 
-$(defaulttarget):
+default:
+	@$(call bitbake)
 
 help:
 	@echo >&2 "Note: Default target is $(defaulttarget)"
@@ -19,13 +19,17 @@ help:
 	@echo >&2 "       make update"
 	@echo >72 "         Update to the latest bitbake and metadata"
 
-clean-sstate:
-	@echo Cleaning sstate files...
-	@-rm -rf sstate-cache
+parse:
+	@echo Parsing metadata...
+	@$(call bitbake,-p)
 
 clean:
 	@echo Cleaning build directory...
-	@-rm -rf build*/* pseudodone
+	@-rm -rf build/tmp* pseudodone
+
+clean-sstate:
+	@echo Cleaning sstate files...
+	@-rm -rf build/shared-state-cache
 
 graph-%:
 	@echo Graphing $*...

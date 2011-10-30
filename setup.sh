@@ -1,4 +1,4 @@
-PATH=$PWD/../oe-core/scripts:$PWD/../bitbake/bin:$PATH
+PATH=$PWD/sources/oe-core/scripts:$PWD/sources/bitbake/bin:$PATH
 export PATH
 
 # Used by poky-qemu, scripts/bitbake
