@@ -19,13 +19,17 @@ help:
 	@echo >&2 "       make update"
 	@echo >72 "         Update to the latest bitbake and metadata"
 
-clean-sstate:
-	@echo Cleaning sstate files...
-	@-rm -rf sstate-cache
+parse:
+	@echo Parsing metadata...
+	@$(call bitbake,-p)
 
 clean:
 	@echo Cleaning build directory...
 	@-rm -rf build*/* pseudodone
+
+clean-sstate:
+	@echo Cleaning sstate files...
+	@-rm -rf sstate-cache
 
 graph-%:
 	@echo Graphing $*...
